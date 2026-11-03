@@ -1,51 +1,31 @@
-# NOVA AI
+# NOVA AI — source de l'application
 
-A responsive AI workspace starter built with Next.js App Router. It includes:
-- AI assistant chat interface
-- Writing, translation, business, idea and image-prompt tools
-- Responsive desktop/mobile layout
-- PWA manifest for installable web-app behavior
-- Server-side AI API route (API key stays on the server)
-- Local recent-prompt history
-- Privacy, Terms, About, How to Use, Contact and Plans pages
-- NOVA AI support contact: karim071984@gmail.com
+NOVA AI est une application web Next.js responsive, préparée comme PWA installable sur Android après déploiement HTTPS.
 
-## Requirements
-- Node.js 20.9+
-- npm
+## Fonctions incluses
+- Interface d'assistant IA multilingue
+- Historique de conversation côté interface
+- Outils d'écriture, traduction, idées et aide professionnelle
+- Analyse d'images envoyées par l'utilisateur
+- Génération d'images via l'API Images
+- Contact et guide d'utilisation dans l'interface
+- Manifest PWA et icônes Android 192/512 px
+- Clé API utilisée uniquement côté serveur
 
-## Run locally
-1. Extract the ZIP.
-2. Open a terminal in the project folder.
-3. Run `npm install`.
-4. Copy `.env.example` to `.env.local`.
-5. Add your AI provider API key to `OPENAI_API_KEY` in `.env.local`.
-6. Run `npm run dev`.
-7. Open http://localhost:3000.
+## Démarrage local
+Prérequis : Node.js 20.9+ et npm.
 
-Without an API key, the interface runs and the chat route returns a setup message rather than a live model response.
+1. Décompresser le ZIP et ouvrir un terminal dans `NOVA_AI_Final`.
+2. Installer : `npm install`
+3. Copier `.env.example` vers `.env.local`.
+4. Définir `OPENAI_API_KEY` dans `.env.local` (ne jamais publier cette clé).
+5. Lancer : `npm run dev`
+6. Ouvrir `http://localhost:3000`.
 
-## Production checklist
-This source package is a working application foundation, not a deployed commercial SaaS. Before public launch, configure:
-- AI provider billing, rate limits, abuse protection and usage monitoring
-- Real user authentication and database persistence
-- Subscription checkout, invoices, refunds and webhook verification
-- Image-generation provider integration (the current Image Studio creates prompts)
-- File upload/storage, privacy policy, terms, cookie/consent requirements
-- Email verification, password reset, account deletion and support
-- Monitoring, backups, security review, accessibility and load testing
-- HTTPS hosting and production domain
+## Déploiement et installation Android
+Déployer le projet sur un hébergeur compatible Next.js avec HTTPS. Ajouter `OPENAI_API_KEY` dans les variables secrètes du serveur. Ouvrir ensuite l'URL publique dans Chrome Android, puis choisir « Installer l'application » ou « Ajouter à l'écran d'accueil » si proposé.
 
-Do not expose secret API keys in browser code or commit `.env.local`.
+Cette méthode installe la PWA. Ce ZIP n'est pas un APK signé. Pour un APK autonome, il faut une URL de production et Android SDK/Gradle, puis générer et signer le paquet Android.
 
-## Mobile
-The app includes a web manifest and responsive UI. Once deployed over HTTPS, supported browsers can install it to a home screen. This is a PWA, not a signed Play Store or App Store binary.
-
-
-## Important launch notes
-
-The informational pages are starter drafts, not legal advice. Review and adapt the Privacy Policy and Terms to the exact deployed services, data flows, retention periods, age rules, advertising SDKs and payment providers before launch. The Plans page is informational only: subscription billing is not implemented.
-
-Google AdMob is not included in this Next.js/PWA starter. AdMob is intended for supported native mobile app integrations; a production Android app needs a native Android layer or suitable supported integration, real AdMob app/ad unit IDs, consent and privacy disclosures, test ads during development, and policy review. Do not use placeholder IDs in a release. The project is not yet a signed Android App Bundle/APK and Play Store approval cannot be guaranteed.
-
-See `docs/PLAY_STORE_ADMOB_SETUP.md` for the remaining release checklist.
+## Production
+Avant d'ouvrir au public : ajouter authentification, base de données, limites de requêtes, protection contre les abus, suivi des coûts, politique de confidentialité, conditions d'utilisation, sauvegardes et tests de sécurité. La disponibilité de la génération d'images dépend du modèle et des autorisations de facturation du compte API.
